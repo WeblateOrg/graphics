@@ -18,6 +18,6 @@ weblate-black-%.png: weblate-black.svg
 %.jpg: %.png
 	convert $< -quality 75 $@
 
-weblate.ico: weblate-logo-16.png weblate-logo-32.png weblate-logo-48.png
+weblate.ico: weblate-logo-48.png weblate-logo-32.png weblate-logo-16.png
 	icotool -c -o $@ $^
 
