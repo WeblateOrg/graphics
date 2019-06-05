@@ -7,6 +7,10 @@ if [ $# -ne 7 ] ; then
 fi
 
 inkscape $1 --export-width=$3 --export-background-opacity=$5 --export-background=$6 --export-height=$4 --export-png=tmp.png
-pngnq -s 1 -f -n $7 tmp.png
+if [ -z "$7" ] ; then
+    cp tmp.png tmp-nq8.png
+else
+    pngnq -s 1 -f -n $7 tmp.png
+fi
 zopflipng -m tmp-nq8.png $2
 rm tmp.png tmp-nq8.png
