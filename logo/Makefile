@@ -11,11 +11,11 @@ BUTTONS=weblate-button.png weblate-button-big.png
 all: $(LOGOS) $(JPGS) 
 # $(STATIC) $(BUTTONS)
 
-weblate-logo-%.png: weblate-logo.svg
-	@./svg2png.sh $< $@ $* $* 200
+weblate-logo-%.png: weblate.svg
+	@./svg2png.sh $< $@ $* $* 1.0 200
 
-weblate-transparent-%.png: weblate-transparent.svg
-	@./svg2png.sh $< $@ $* $* 200
+weblate-transparent-%.png: weblate.svg
+	@./svg2png.sh $< $@ $* $* 0.0 200
 
 %.jpg: %.png
 	convert $< -quality 75 $@

@@ -15,7 +15,7 @@
    xml:space="preserve"
    style="clip-rule:evenodd;fill-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41420996"
    id="svg39"
-   sodipodi:docname="weblate-logo.svg"
+   sodipodi:docname="weblate.svg"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)"><metadata
    id="metadata43"><rdf:RDF><cc:Work
        rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
@@ -26,7 +26,7 @@
    objecttolerance="10"
    gridtolerance="10"
    guidetolerance="10"
-   inkscape:pageopacity="1"
+   inkscape:pageopacity="0"
    inkscape:pageshadow="2"
    inkscape:window-width="1920"
    inkscape:window-height="1173"
