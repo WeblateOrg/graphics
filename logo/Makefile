@@ -1,4 +1,4 @@
-SIZES=16 32 48 64 120 128 200 1024 152 144
+SIZES=16 32 48 64 120 128 200 1024 152 144 180 192 512
 
 LOGOS=$(addprefix weblate-logo-,$(addsuffix .png,$(SIZES))) $(addprefix weblate-transparent-,$(addsuffix .png,$(SIZES))) $(addprefix weblate-black-,$(addsuffix .png,$(SIZES)))
 
