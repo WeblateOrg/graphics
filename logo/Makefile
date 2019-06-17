@@ -16,7 +16,7 @@ weblate-transparent-%.png: weblate.svg
 	@../bin/svg2png.sh $< $@ $* $* 0.0 '#144d3f' ''
 
 weblate-black-%.png: weblate-black.svg
-	@../bin/svg2png.sh $< $@ $* $* 1.0 '#ffffff' 20
+	@../bin/svg2png.sh $< $@ $* $* 1.0 '#ffffff' 20 --export-area=48:48:252:252
 
 %.jpg: %.png
 	convert $< -quality 75 $@
