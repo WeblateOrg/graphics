@@ -1,16 +1,26 @@
 #!/bin/sh
 set -e
 
-if [ $# -ne 7 ] ; then
+if [ $# -lt 7 ] ; then
     echo "Usage: svg2png.sh image.svg image.png width height background-opacity background-color colors"
     exit 1
 fi
 
-inkscape $1 --export-width=$3 --export-background-opacity=$5 --export-background=$6 --export-height=$4 --export-png=tmp.png
-if [ -z "$7" ] ; then
+SOURCE="$1"
+OUTPUT="$2"
+WIDTH="$3"
+HEIGHT="$4"
+BACKGROUND_OP="$5"
+BACKGROUND_COL="$6"
+COLORS="$7"
+shift 7
+
+inkscape $SOURCE --export-width=$WIDTH --export-background-opacity=$BACKGROUND_OP --export-background=$BACKGROUND_COL --export-height=$HEIGHT --export-png=tmp.png "$@"
+if [ -z "$COLORS" ] ; then
     cp tmp.png tmp-nq8.png
 else
-    pngnq -s 1 -f -n $7 tmp.png
+    pngnq -s 1 -f -n $COLORS tmp.png
 fi
-zopflipng -m tmp-nq8.png $2
+rm -f $OUTPUT
+zopflipng -m tmp-nq8.png $OUTPUT
 rm tmp.png tmp-nq8.png
