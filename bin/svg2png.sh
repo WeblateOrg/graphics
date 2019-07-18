@@ -15,7 +15,18 @@ BACKGROUND_COL="$6"
 COLORS="$7"
 shift 7
 
-inkscape $SOURCE --export-width=$WIDTH --export-background-opacity=$BACKGROUND_OP --export-background=$BACKGROUND_COL --export-height=$HEIGHT --export-png=tmp.png "$@"
+SIZE=""
+if [ ! -z "$WIDTH" ] ; then
+    SIZE="$SIZE --export-width=$WIDTH"
+fi
+if [ ! -z "$HEIGHT" ] ; then
+    SIZE="$SIZE --export-width=$HEIGHT"
+fi
+if [ -z "$SIZE" ] ; then
+    SIZE="--export-area-drawing"
+fi
+
+inkscape $SOURCE $SIZE --export-background-opacity=$BACKGROUND_OP --export-background=$BACKGROUND_COL --export-png=tmp.png "$@"
 if [ -z "$COLORS" ] ; then
     cp tmp.png tmp-nq8.png
 else
