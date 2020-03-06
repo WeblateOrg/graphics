@@ -26,7 +26,7 @@ if [ -z "$SIZE" ] ; then
     SIZE="--export-area-drawing"
 fi
 
-inkscape $SOURCE $SIZE --export-background-opacity=$BACKGROUND_OP --export-background=$BACKGROUND_COL --export-png=tmp.png "$@"
+inkscape $SOURCE $SIZE --export-background-opacity=$BACKGROUND_OP --export-background=$BACKGROUND_COL --export-type=png --export-file=tmp.png "$@"
 if [ -z "$COLORS" ] ; then
     cp tmp.png tmp-nq8.png
 else
