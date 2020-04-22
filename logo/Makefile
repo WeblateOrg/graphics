@@ -20,4 +20,3 @@ weblate-transparent-%.png: weblate.svg
 
 weblate.ico: weblate-logo-48.png weblate-logo-32.png weblate-logo-16.png
 	icotool -c -o $@ $^
-
