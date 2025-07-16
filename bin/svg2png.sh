@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-if [ $# -lt 7 ] ; then
+if [ $# -lt 7 ]; then
     echo "Usage: svg2png.sh image.svg image.png width height background-opacity background-color colors"
     exit 1
 fi
@@ -16,22 +16,23 @@ COLORS="$7"
 shift 7
 
 SIZE=""
-if [ ! -z "$WIDTH" ] ; then
+if [ -n "$WIDTH" ]; then
     SIZE="$SIZE --export-width=$WIDTH"
 fi
-if [ ! -z "$HEIGHT" ] ; then
+if [ -n "$HEIGHT" ]; then
     SIZE="$SIZE --export-width=$HEIGHT"
 fi
-if [ -z "$SIZE" ] ; then
+if [ -z "$SIZE" ]; then
     SIZE="--export-area-drawing"
 fi
 
-inkscape $SOURCE $SIZE --export-background-opacity=$BACKGROUND_OP --export-background=$BACKGROUND_COL --export-type=png --export-file=tmp.png "$@"
-if [ -z "$COLORS" ] ; then
+# shellcheck disable=SC2086
+inkscape "$SOURCE" $SIZE "--export-background-opacity=$BACKGROUND_OP" "--export-background=$BACKGROUND_COL" --export-type=png --export-file=tmp.png "$@"
+if [ -z "$COLORS" ]; then
     cp tmp.png tmp-nq8.png
 else
-    pngnq -s 1 -f -n $COLORS tmp.png
+    pngnq -s 1 -f -n "$COLORS" tmp.png
 fi
-rm -f $OUTPUT
-zopflipng -m tmp-nq8.png $OUTPUT
+rm -f "$OUTPUT"
+zopflipng -m tmp-nq8.png "$OUTPUT"
 rm tmp.png tmp-nq8.png
