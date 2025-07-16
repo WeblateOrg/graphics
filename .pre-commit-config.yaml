@@ -60,3 +60,5 @@ repos:
 exclude: ^.*\.(csv|svg)$
 ci:
   autoupdate_schedule: quarterly
+  skip:
+  - gitleaks-docker
